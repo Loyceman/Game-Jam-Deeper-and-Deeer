@@ -16,7 +16,7 @@ var screen_size : Vector2i
 
 func calculate_spawn_intervalle(score : int) :
 	if spawn_interval_crocodile > 3 :
-		spawn_interval_crocodile = spawn_interval_crocodile_init - score/1000
+		spawn_interval_crocodile = spawn_interval_crocodile_init - score/1500
 
 func _ready():
 	#Obtenir la cam
@@ -55,7 +55,7 @@ func spawn_crocodile():
 	if(direction == 1):
 		obstacle_instance.set_rotation_degrees(180)
 	else :
-		obstacle_instance.set_rotation_degrees(-180)
+		obstacle_instance.set_rotation_degrees(0)
 	
 	# Définir une position aléatoire pour l'obstacle
 	var random_x = randi_range(camera.position.x + screen_size.x / zoom + 16, camera.position.x + screen_size.x / zoom + 96)
