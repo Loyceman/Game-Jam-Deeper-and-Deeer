@@ -368,9 +368,10 @@ texture_region_size = Vector2i(80, 80)
 
 [sub_resource type="TileSet" id="TileSet_og4ji"]
 tile_size = Vector2i(80, 80)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_kivmg")
 
 [node name="TileMap" type="TileMap"]
+z_index = 3
 tile_set = SubResource("TileSet_og4ji")
 format = 2

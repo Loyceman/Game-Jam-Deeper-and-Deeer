@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://duk161k30wjo4" path="res://res/background/tile_map.tscn" id="1_pfdc3"]
 
 [node name="pipebas_L1_1" type="Node2D"]
+modulate = Color(1, 1, 1, 0.588235)
 scale = Vector2(0.04, 0.04)
 
 [node name="TileMap" parent="." instance=ExtResource("1_pfdc3")]

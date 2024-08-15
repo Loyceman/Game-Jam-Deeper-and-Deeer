@@ -17,6 +17,7 @@ radius = 210.0
 height = 560.0
 
 [node name="Crocodile" instance=ExtResource("1_5ioqs")]
+z_index = 2
 scale = Vector2(0.1, 0.1)
 script = ExtResource("2_l2tij")
 

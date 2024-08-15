@@ -6,7 +6,7 @@ extends Node2D
 
 var zoom_x : int 
 var speed : float
-const START_SPEED : float = 0.5
+const START_SPEED : float = 0.2
 const CAM_START_POS := Vector2i(0, 0)
 var screen_size : Vector2i
 var used_rect #jsp

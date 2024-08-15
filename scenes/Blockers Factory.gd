@@ -17,7 +17,7 @@ var camera
 # Intervalle de temps entre chaque génération d'obstacle
 @export var spawn_interval_fish_init : float = 4
 @export var spawn_interval_bottle_init : float = 4
-@export var spawn_interval_pipebas_init : float = 0.0
+@export var spawn_interval_pipebas_init : float = 10
 
 var spawn_interval_fish : float = spawn_interval_fish_init
 var spawn_interval_bottle : float = spawn_interval_bottle_init
@@ -93,7 +93,7 @@ func spawn_fish():
 	
 	# Définir une position aléatoire pour l'obstacle
 	var random_x = randi_range(camera.position.x + screen_size.x / zoom_x + 16, camera.position.x + screen_size.x / zoom_x + 96)
-	var random_y = randi_range(96, 208)
+	var random_y = randi_range(84, 208)
 	obstacle_instance.position = Vector2(random_x, random_y)
 	
 	# Ajouter l'obstacle à la scène
@@ -106,7 +106,7 @@ func spawn_bottle():
 	
 	# Définir une position aléatoire pour l'obstacle
 	var random_x = randi_range(camera.position.x + screen_size.x / zoom_x + 16, camera.position.x + screen_size.x / zoom_x + 96)
-	var random_y = randi_range(96, 208)
+	var random_y = randi_range(84, 208)
 	obstacle_instance.position = Vector2(random_x, random_y)
 	
 	# Ajouter l'obstacle à la scène
