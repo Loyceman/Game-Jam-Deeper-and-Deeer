@@ -16,7 +16,11 @@ var length_background : int
 
 var score : float = 0 
 
+signal change_to_game_over(score: int)
+
 func _ready():
+	$"Paper Boat".game_over.connect(call_scene_manager_for_game_over)
+	
 	#Obtient taille de l'écran et zoom de la camera
 	screen_size = get_window().size
 	zoom_x = camera.get_zoom().x
@@ -62,3 +66,6 @@ func increase_score(points: int):
 	$"Blockers Factory".calculate_spawn_intervalle(score)
 	$EnnemiesFactory.calculate_spawn_intervalle(score)
 	_update_score()
+	
+func call_scene_manager_for_game_over():
+	emit_signal("change_to_game_over", score)
