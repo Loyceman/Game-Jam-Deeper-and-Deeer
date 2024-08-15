@@ -3,7 +3,7 @@ extends StaticBody2D
 class_name Ennemy
 
 @export var speed = 15
-var velocity : Vector2 = Vector2(-speed,0)
+var velocity : Vector2 = Vector2(speed, 0).rotated(rotation)
 
 func isEnnemy():
 	return true

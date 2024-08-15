@@ -2,7 +2,7 @@ class_name Player
 
 extends CharacterBody2D
 
-@export var speed = 400
+@export var speed = 100
 
 func isPlayer(): 
 	return true
@@ -21,10 +21,15 @@ func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 	
+	if($"Sprites Boat".get_frame()==3):
+		died()
+	
 func died():
 	$"Sprites Boat".play()
 	await $"Sprites Boat".animation_finished
 	queue_free()
 	
 func hit(body : Node2D):
-	print(body.get_class())
+	if (body.has_method("isEnnemy")):
+		$"Sprites Boat".set_frame($"Sprites Boat".get_frame()+1)
+

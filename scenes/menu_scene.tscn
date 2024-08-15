@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjuvf3e7qounl"]
+
+[ext_resource type="Texture2D" uid="uid://chc28fjyo60m1" path="res://res/background/background menu.jpg" id="1_bltr6"]
+[ext_resource type="FontFile" uid="uid://bqf32wa4wrekp" path="res://res/background/Minecraft.ttf" id="2_r8ybv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wqpgi"]
+font = ExtResource("2_r8ybv")
+font_size = 90
+outline_size = 110
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+
+[node name="MenuScene" type="Node2D"]
+
+[node name="BackgroundMenu" type="Sprite2D" parent="."]
+position = Vector2(563, 447)
+scale = Vector2(1.34192, 1.14697)
+texture = ExtResource("1_bltr6")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 22.0
+offset_right = 1177.0
+offset_bottom = 668.0
+size_flags_horizontal = 4
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -585.0
+offset_right = 585.0
+offset_bottom = 185.0
+grow_horizontal = 2
+text = "THE LITTLE 
+PAPER BOAT"
+label_settings = SubResource("LabelSettings_wqpgi")
+horizontal_alignment = 1
+
+[node name="ButtonPlay" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.5
+offset_top = -68.0
+offset_right = 317.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_r8ybv")
+theme_override_font_sizes/font_size = 100
+text = "PLAY"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
