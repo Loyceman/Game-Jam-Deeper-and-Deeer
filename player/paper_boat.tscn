@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmhf0w61hay3a"]
+[gd_scene load_steps=10 format=3 uid="uid://cmhf0w61hay3a"]
 
 [ext_resource type="Script" path="res://player/paper_boat.gd" id="1_1tm7o"]
 [ext_resource type="Texture2D" uid="uid://njfqdm4wv4ct" path="res://res/paperboat/paper boat.png" id="1_onml8"]
@@ -31,8 +31,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfala"]
-radius = 112.0
-height = 372.0
+radius = 90.0
+height = 320.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4en36"]
+radius = 228.009
 
 [node name="Paper Boat" type="CharacterBody2D"]
 script = ExtResource("1_1tm7o")
@@ -41,6 +44,15 @@ script = ExtResource("1_1tm7o")
 sprite_frames = SubResource("SpriteFrames_n380j")
 
 [node name="Collision Boat" type="CollisionShape2D" parent="."]
+position = Vector2(0, 24)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jfala")
+one_way_collision = true
+one_way_collision_margin = 3.3
 debug_color = Color(0.494118, 0.54902, 0.552941, 0.419608)
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionHitBox" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_4en36")

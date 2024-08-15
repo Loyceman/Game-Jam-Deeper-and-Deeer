@@ -39,10 +39,10 @@ func new_game():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	speed = START_SPEED
 	
-	#Move cam
+	#Move camera
 	camera.position.x += speed
 	
 	if camera.position.x - background.position.x > (length_background - (screen_size.x / zoom + 3)):

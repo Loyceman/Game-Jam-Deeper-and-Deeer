@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://kndwxwyqjy5q"]
+
+[ext_resource type="PackedScene" uid="uid://brxw7va01p6bi" path="res://ennemies/ennemy.tscn" id="1_5ioqs"]
+[ext_resource type="Script" path="res://ennemies/crocodile.gd" id="2_l2tij"]
+[ext_resource type="Texture2D" uid="uid://cc2cep6ib64d1" path="res://res/ennemies/crocodile.png" id="3_11dwm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6wu0j"]
+radius = 49.0
+height = 270.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sacos"]
+radius = 600.0
+height = 2560.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tcpvj"]
+radius = 460.0
+height = 920.0
+
+[node name="Crocodile" instance=ExtResource("1_5ioqs")]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("2_l2tij")
+
+[node name="Sprite2D" parent="." index="0"]
+rotation = -1.5708
+texture = ExtResource("3_11dwm")
+
+[node name="HeadCollision" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(261, -16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6wu0j")
+
+[node name="HitZone" type="Area2D" parent="." index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone" index="0"]
+position = Vector2(1330, -30)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sacos")
+debug_color = Color(0.443137, 0.894118, 1, 0.419608)
+
+[node name="NearZone" type="Area2D" parent="." index="3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NearZone" index="0"]
+position = Vector2(750, -20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tcpvj")
+debug_color = Color(0.713726, 0.752941, 0.729412, 0.419608)

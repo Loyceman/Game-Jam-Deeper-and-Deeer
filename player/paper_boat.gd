@@ -1,9 +1,15 @@
+class_name Player 
+
 extends CharacterBody2D
 
 @export var speed = 400
 
-#func _ready():
-	#await get_tree().create_timer(5).timeout
+func isPlayer(): 
+	return true
+
+func _ready():
+	$".".get_viewport_rect()
+	$HitBox.body_entered.connect(hit)
 
 func get_input():
 	var input_direction_y = Input.get_axis("move_up", "move_down")
@@ -19,3 +25,6 @@ func died():
 	$"Sprites Boat".play()
 	await $"Sprites Boat".animation_finished
 	queue_free()
+	
+func hit(body : Node2D):
+	print(body.get_class())
