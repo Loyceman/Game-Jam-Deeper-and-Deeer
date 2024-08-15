@@ -2,7 +2,7 @@ class_name Player
 
 extends CharacterBody2D
 
-@export var speed = 100
+@export var speed = 35
 
 func isPlayer(): 
 	return true

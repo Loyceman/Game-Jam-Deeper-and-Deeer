@@ -6,7 +6,7 @@ extends Node2D
 
 var zoom_x : int 
 var speed : float
-const START_SPEED : float = 2
+const START_SPEED : float = 0.5
 const CAM_START_POS := Vector2i(0, 0)
 var screen_size : Vector2i
 var used_rect #jsp
@@ -16,9 +16,7 @@ var length_background : int
 
 var score : float = 0 
 
-
 func _ready():
-
 	#Obtient taille de l'écran et zoom de la camera
 	screen_size = get_window().size
 	zoom_x = camera.get_zoom().x
@@ -37,7 +35,6 @@ func _ready():
 func new_game():
 	camera.position = CAM_START_POS
 	background.position =  Vector2i(0,0)
-
 
 
 func _process(delta):
@@ -63,4 +60,5 @@ func _update_score():
 func increase_score(points: int):
 	score += points
 	$"Blockers Factory".calculate_spawn_intervalle(score)
+	$EnnemiesFactory.calculate_spawn_intervalle(score)
 	_update_score()
