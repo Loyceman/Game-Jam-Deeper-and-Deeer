@@ -1,6 +1,6 @@
 extends Ennemy
 
-var target : Player = null
+var target  = null
 var aiming : bool = true
 
 func _ready():
