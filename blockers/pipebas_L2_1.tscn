@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cyhug4soicmhs"]
 
-[ext_resource type="PackedScene" uid="uid://d33qjjwv1fdvh" path="res://blockers/pipehautbas_L1.tscn" id="1_hxfpt"]
+[ext_resource type="PackedScene" uid="uid://d33qjjwv1fdvh" path="res://blockers/pipehaut_L1.tscn" id="1_oy7c2"]
 
-[node name="pipebas_L2_1" instance=ExtResource("1_hxfpt")]
+[node name="pipebas_L2_1" instance=ExtResource("1_oy7c2")]
 
 [node name="TileMap" parent="." index="0"]
 layer_0/name = "1"
