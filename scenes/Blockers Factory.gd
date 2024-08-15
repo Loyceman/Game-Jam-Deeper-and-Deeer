@@ -23,9 +23,6 @@ var spawn_interval_fish : float = spawn_interval_fish_init
 var spawn_interval_bottle : float = spawn_interval_bottle_init
 var spawn_interval_pipebas : float = spawn_interval_pipebas_init
 
-
-
-
 var timer1 : float = 0.0
 var timer2 : float = 0.0
 var timer3 : float = 0.0

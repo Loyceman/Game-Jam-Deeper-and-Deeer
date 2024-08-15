@@ -4,6 +4,8 @@ extends CharacterBody2D
 
 @export var speed = 35
 
+signal game_over()
+
 func isPlayer(): 
 	return true
 
@@ -28,8 +30,12 @@ func died():
 	$"Sprites Boat".play()
 	await $"Sprites Boat".animation_finished
 	queue_free()
-	
+	emit_signal("game_over")
+
+
 func hit(body : Node2D):
 	if (body.has_method("isEnnemy")):
-		$"Sprites Boat".set_frame($"Sprites Boat".get_frame()+1)
-
+		lose_health()
+	
+func lose_health():
+	$"Sprites Boat".set_frame($"Sprites Boat".get_frame()+1)
