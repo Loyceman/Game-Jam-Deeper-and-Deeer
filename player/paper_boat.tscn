@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmhf0w61hay3a"]
+
+[ext_resource type="Script" path="res://player/paper_boat.gd" id="1_1tm7o"]
+[ext_resource type="Texture2D" uid="uid://njfqdm4wv4ct" path="res://res/paperboat/paper boat.png" id="1_onml8"]
+[ext_resource type="Texture2D" uid="uid://efb5utaai4rl" path="res://res/paperboat/paper boat-1.png" id="2_70imt"]
+[ext_resource type="Texture2D" uid="uid://dj7bf0imj57y0" path="res://res/paperboat/paper boat-2.png" id="3_213fn"]
+[ext_resource type="Texture2D" uid="uid://bb6elw4bj7iqh" path="res://res/paperboat/paper boat-3.png" id="4_l18hk"]
+[ext_resource type="Texture2D" uid="uid://bnhos0j7ptl45" path="res://res/paperboat/paper boat-4.png" id="5_iypdt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n380j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_onml8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_70imt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_213fn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l18hk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_iypdt")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfala"]
+radius = 112.0
+height = 372.0
+
+[node name="Paper Boat" type="CharacterBody2D"]
+script = ExtResource("1_1tm7o")
+
+[node name="Sprites Boat" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n380j")
+
+[node name="Collision Boat" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jfala")
+debug_color = Color(0.494118, 0.54902, 0.552941, 0.419608)
