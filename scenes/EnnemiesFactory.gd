@@ -6,13 +6,17 @@ var camera
 
 
 # Intervalle de temps entre chaque génération d'obstacle
-@export var spawn_interval_crocodile = 0.0
+@export var spawn_interval_crocodile_init = 1
+var spawn_interval_crocodile : float = spawn_interval_crocodile_init
 
 var timer1 = 0.0
 
 var zoom
 var screen_size : Vector2i
 
+func calculate_spawn_intervalle(score : int) :
+	if spawn_interval_crocodile>1 :
+		spawn_interval_crocodile = spawn_interval_crocodile_init - score/1000
 
 func _ready():
 	#Obtenir la cam

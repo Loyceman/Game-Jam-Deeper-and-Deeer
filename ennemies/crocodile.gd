@@ -16,7 +16,6 @@ func _physics_process(delta):
 func aim():
 	look_at(target.position)
 	velocity = position.direction_to(target.position) * speed
-	print(velocity)
 
 func hitZone(body : Node2D):
 	if(body.has_method("isPlayer")):

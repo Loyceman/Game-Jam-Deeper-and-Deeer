@@ -23,7 +23,6 @@ position = Vector2(92, 140)
 scale = Vector2(0.02, 0.02)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1, 0)
 offset = Vector2(183, 104)
 zoom = Vector2(3.16, 3.16)
 
@@ -49,8 +48,8 @@ label_settings = SubResource("LabelSettings_g65an")
 
 [node name="Blockers Factory" type="Node2D" parent="."]
 script = ExtResource("3_nmwah")
-spawn_interval_pipebas = 3.0
-spawn_interval_pipehaut = 1.0
+spawn_interval_fish = 2.0
+spawn_interval_bottle = 4.0
 
 [node name="EnnemiesFactory" type="Node2D" parent="."]
 script = ExtResource("5_b4obu")
