@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bg266phg1oyv6"]
+[gd_scene load_steps=5 format=3 uid="uid://bg266phg1oyv6"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_al77q"]
 [ext_resource type="PackedScene" uid="uid://wovk285nwrnv" path="res://background/background.tscn" id="1_ryass"]
+[ext_resource type="PackedScene" uid="uid://basdbkmnfxhpd" path="res://blockers/fish.tscn" id="3_lyfv5"]
+[ext_resource type="Script" path="res://scenes/Blockers Factory.gd" id="3_nmwah"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_al77q")
@@ -11,3 +13,9 @@ script = ExtResource("1_al77q")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(183, 104)
 zoom = Vector2(3.16, 3.16)
+
+[node name="Blockers Factory" type="Node2D" parent="."]
+script = ExtResource("3_nmwah")
+
+[node name="Fish" parent="Blockers Factory" instance=ExtResource("3_lyfv5")]
+position = Vector2(208, 144)
