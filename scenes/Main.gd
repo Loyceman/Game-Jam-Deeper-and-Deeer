@@ -6,7 +6,7 @@ extends Node2D
 
 var zoom_x : int 
 var speed : float
-const START_SPEED : float = 0.5
+const START_SPEED : float = 2
 const CAM_START_POS := Vector2i(0, 0)
 var screen_size : Vector2i
 var used_rect #jsp
@@ -38,24 +38,18 @@ func new_game():
 	camera.position = CAM_START_POS
 	background.position =  Vector2i(0,0)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+
 func _process(delta):
-	#Initialise les positions
-	camera.position = CAM_START_POS
-	background.position =  Vector2i(0,0)
-
-
-
-func _process(_delta):
 	#Vitesse de départ
 	speed = START_SPEED
 	
 	#Move camera
-	camera.position.x += speed
+	camera.position.x += speed 
 	
 	#Si la caméra va plus loin que la taille de la TileMap, moins la taille de l'écran,
 	#alors remet à jour la position de la caméra au début.
-	if camera.position.x - background.position.x > (length_background - (screen_size.x / zoom_x + 3)):
+	if camera.position.x - background.position.x > (length_background - (screen_size.x / zoom_x - 14)):
 		background.position.x = camera.position.x
 		
 	increase_score(100*delta)
