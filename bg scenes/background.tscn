@@ -1,9 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://wovk285nwrnv"]
 
-[ext_resource type="Texture2D" uid="uid://bk01tem4538ji" path="res://res/background/sewer_1.png" id="1_5qicu"]
+[ext_resource type="Texture2D" uid="uid://bk01tem4538ji" path="res://res/background/sewer_1.png" id="1_0pmv0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fbdpy"]
-texture = ExtResource("1_5qicu")
+texture = ExtResource("1_0pmv0")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
