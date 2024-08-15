@@ -19,6 +19,7 @@ height = 560.0
 [node name="Crocodile" instance=ExtResource("1_5ioqs")]
 z_index = 2
 scale = Vector2(0.1, 0.1)
+collision_layer = 4
 script = ExtResource("2_l2tij")
 
 [node name="Sprite2D" parent="." index="0"]

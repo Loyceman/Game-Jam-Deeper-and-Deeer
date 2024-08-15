@@ -38,7 +38,7 @@ height = 320.0
 radius = 228.009
 
 [node name="Paper Boat" type="CharacterBody2D"]
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_1tm7o")
 
 [node name="Sprites Boat" type="AnimatedSprite2D" parent="."]
