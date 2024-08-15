@@ -48,6 +48,8 @@ label_settings = SubResource("LabelSettings_g65an")
 
 [node name="Blockers Factory" type="Node2D" parent="."]
 script = ExtResource("3_nmwah")
+spawn_interval_fish = 2.0
+spawn_interval_bottle = 4.0
 
 [node name="EnnemiesFactory" type="Node2D" parent="."]
 script = ExtResource("5_b4obu")
