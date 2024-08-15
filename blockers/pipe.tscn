@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d33qjjwv1fdvh"]
+
+[ext_resource type="Texture2D" uid="uid://ck338kcx4j56q" path="res://res/background/pipes.png" id="1_1hoe4"]
+
+[node name="pipe" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_1hoe4")
+region_rect = Rect2(10000, 0, 10000, 10000)
