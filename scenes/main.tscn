@@ -1,12 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg266phg1oyv6"]
+[gd_scene load_steps=5 format=3 uid="uid://bg266phg1oyv6"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_al77q"]
 [ext_resource type="PackedScene" uid="uid://wovk285nwrnv" path="res://background/background.tscn" id="1_ryass"]
 [ext_resource type="PackedScene" uid="uid://cmhf0w61hay3a" path="res://player/paper_boat.tscn" id="3_epyrs"]
-[ext_resource type="PackedScene" uid="uid://kndwxwyqjy5q" path="res://ennemies/crocodile.tscn" id="4_llcvh"]
-[ext_resource type="PackedScene" uid="uid://basdbkmnfxhpd" path="res://blockers/fish.tscn" id="3_lyfv5"]
 [ext_resource type="Script" path="res://scenes/Blockers Factory.gd" id="3_nmwah"]
-[ext_resource type="PackedScene" uid="uid://c0y3i58wih728" path="res://blockers/bottle.tscn" id="5_266v2"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_al77q")
@@ -22,25 +19,7 @@ speed = 100
 offset = Vector2(183, 104)
 zoom = Vector2(3.16, 3.16)
 
-[node name="Crocodile" parent="." instance=ExtResource("4_llcvh")]
-position = Vector2(506, 146)
-rotation = -3.14159
-speed = 10
-
-[node name="Crocodile2" parent="." instance=ExtResource("4_llcvh")]
-position = Vector2(592, 129)
-rotation = -3.14159
-
-[node name="Crocodile3" parent="." instance=ExtResource("4_llcvh")]
-position = Vector2(553, 187)
-rotation = -3.14159
 [node name="Blockers Factory" type="Node2D" parent="."]
 script = ExtResource("3_nmwah")
 spawn_interval_fish = 2.0
 spawn_interval_bottle = 1.5
-
-[node name="Fish" parent="Blockers Factory" instance=ExtResource("3_lyfv5")]
-position = Vector2(208, 144)
-
-[node name="bottle" parent="Blockers Factory" instance=ExtResource("5_266v2")]
-position = Vector2(263, 121)
