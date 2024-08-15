@@ -6,7 +6,7 @@ var camera
 
 
 # Intervalle de temps entre chaque génération d'obstacle
-var spawn_interval = 1.0
+@export var spawn_interval = 0.1
 var timer = 0.0
 
 var zoom

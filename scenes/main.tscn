@@ -16,6 +16,7 @@ zoom = Vector2(3.16, 3.16)
 
 [node name="Blockers Factory" type="Node2D" parent="."]
 script = ExtResource("3_nmwah")
+spawn_interval = 0.01
 
 [node name="Fish" parent="Blockers Factory" instance=ExtResource("3_lyfv5")]
 position = Vector2(208, 144)
