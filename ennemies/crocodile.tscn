@@ -18,7 +18,7 @@ height = 560.0
 
 [node name="Crocodile" instance=ExtResource("1_5ioqs")]
 z_index = 2
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.14, 0.14)
 collision_layer = 8
 collision_mask = 33
 script = ExtResource("2_l2tij")
