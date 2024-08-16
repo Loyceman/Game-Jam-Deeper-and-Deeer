@@ -50,13 +50,6 @@ func spawn_crocodile():
 	# Instancier un nouvel obstacle
 	var obstacle_instance : StaticBody2D = crocodile_scene.instantiate()
 	
-	var direction = randi_range(0,1)
-	print(direction)
-	if(direction == 1):
-		obstacle_instance.set_rotation_degrees(180)
-	else :
-		obstacle_instance.set_rotation_degrees(0)
-	
 	# Définir une position aléatoire pour l'obstacle
 	var random_x = randi_range(camera.position.x + screen_size.x / zoom + 16, camera.position.x + screen_size.x / zoom + 96)
 	var random_y = randi_range(84, 208)

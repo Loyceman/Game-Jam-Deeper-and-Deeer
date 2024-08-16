@@ -2,7 +2,7 @@ class_name Player
 
 extends CharacterBody2D
 
-@export var speed = 35
+@export var speed = 34
 
 signal game_over()
 
@@ -35,7 +35,4 @@ func died():
 
 func hit(body : Node2D):
 	if (body.has_method("isEnnemy")):
-		lose_health()
-	
-func lose_health():
-	$"Sprites Boat".set_frame($"Sprites Boat".get_frame()+1)
+		$"Sprites Boat".set_frame($"Sprites Boat".get_frame()+1)
