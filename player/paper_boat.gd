@@ -35,7 +35,5 @@ func died():
 
 func hit(body : Node2D):
 	if (body.has_method("isEnnemy")):
-		lose_health()
+		$"Sprites Boat".set_frame($"Sprites Boat".get_frame()+1)
 	
-func lose_health():
-	$"Sprites Boat".set_frame($"Sprites Boat".get_frame()+1)

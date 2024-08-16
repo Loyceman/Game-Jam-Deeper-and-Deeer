@@ -6,7 +6,7 @@ var camera
 
 
 # Intervalle de temps entre chaque génération d'obstacle
-@export var spawn_interval_bridge_init = 50
+@export var spawn_interval_bridge_init = 10
 var spawn_interval_bridge : float = spawn_interval_bridge_init
 
 var timer1 = 0.0
@@ -16,7 +16,7 @@ var screen_size : Vector2i
 
 func calculate_spawn_intervalle(score : int) :
 	if spawn_interval_bridge > 3 :
-		spawn_interval_bridge = spawn_interval_bridge_init - score/1000
+		spawn_interval_bridge = spawn_interval_bridge_init - score/3000
 
 func _ready():
 	#Obtenir la cam
