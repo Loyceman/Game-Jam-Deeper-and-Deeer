@@ -15,10 +15,6 @@ run/main_scene="res://scenes/scene_manager.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Global="*res://scenes/global.gd"
-
 [display]
 
 window/size/viewport_height=656

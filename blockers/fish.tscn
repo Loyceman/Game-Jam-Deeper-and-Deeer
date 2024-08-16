@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://qbvy5jb4mblr" path="res://res/ennemies/fish-transparent.png" id="1_tf8gh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aupk7"]
-radius = 75.0
-height = 450.0
+radius = 25.0
+height = 250.0
 
 [node name="Fish" type="RigidBody2D"]
 collision_layer = 4
@@ -15,7 +15,7 @@ script = ExtResource("1_sab0x")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.392157)
 rotation = 1.5708
-scale = Vector2(0.08, 0.08)
+scale = Vector2(0.04, 0.04)
 texture = ExtResource("1_tf8gh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -31,11 +31,11 @@ var timer3 : float = 0.0
 var zoom_x : int
 var screen_size : Vector2i
 
-func calculate_spawn_intervalle() :
-	if spawn_interval_fish>1 and spawn_interval_bottle>1 and spawn_interval_pipebas>2:
-		spawn_interval_fish = spawn_interval_fish_init - Global.score/1000
-		spawn_interval_bottle = spawn_interval_bottle_init - Global.score/1000
-		spawn_interval_pipebas = spawn_interval_pipebas_init - Global.score/1000
+func calculate_spawn_intervalle(score : int) :
+	if spawn_interval_fish>1 and spawn_interval_bottle>1 and spawn_interval_pipebas>2 :
+		spawn_interval_fish = spawn_interval_fish_init - score/1000
+		spawn_interval_bottle = spawn_interval_bottle_init - score/1000
+		spawn_interval_pipebas = spawn_interval_pipebas_init - score/1000
 
 
 func _ready():
