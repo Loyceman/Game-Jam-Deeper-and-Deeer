@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjuvf3e7qounl"]
+[gd_scene load_steps=6 format=3 uid="uid://bjuvf3e7qounl"]
 
 [ext_resource type="Texture2D" uid="uid://chc28fjyo60m1" path="res://res/background/background menu.jpg" id="1_bltr6"]
+[ext_resource type="Script" path="res://scenes/global.gd" id="1_kli3k"]
 [ext_resource type="FontFile" uid="uid://bqf32wa4wrekp" path="res://res/background/Minecraft.ttf" id="2_r8ybv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wqpgi"]
@@ -15,6 +16,7 @@ default_base_scale = 0.25
 default_font = ExtResource("2_r8ybv")
 
 [node name="MenuScene" type="Node2D"]
+script = ExtResource("1_kli3k")
 
 [node name="BackgroundMenu" type="Sprite2D" parent="."]
 position = Vector2(563, 447)
@@ -44,6 +46,17 @@ PAPER BOAT"
 label_settings = SubResource("LabelSettings_wqpgi")
 horizontal_alignment = 1
 
+[node name="ScoreLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 204.0
+offset_right = 922.0
+offset_bottom = 300.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_r8ybv")
+theme_override_font_sizes/font_size = 96
+text = "Best Score : 0"
+
 [node name="ButtonPlay" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
@@ -52,9 +65,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -317.5
-offset_top = -68.0
+offset_top = 7.0
 offset_right = 317.5
-offset_bottom = 68.0
+offset_bottom = 143.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_uytil")
