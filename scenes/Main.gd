@@ -15,7 +15,7 @@ var cell_size : Vector2i
 var length_background : int
 
 var score : float = 0 
-const pointsEveryTimeout : int = 10
+const pointsEveryTimeout : int = 1
 
 signal change_to_game_over(score: int)
 

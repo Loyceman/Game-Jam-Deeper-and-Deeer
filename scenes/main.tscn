@@ -1,16 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bg266phg1oyv6"]
+[gd_scene load_steps=9 format=3 uid="uid://bg266phg1oyv6"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_al77q"]
 [ext_resource type="PackedScene" uid="uid://wovk285nwrnv" path="res://background/background.tscn" id="1_ryass"]
 [ext_resource type="PackedScene" uid="uid://cmhf0w61hay3a" path="res://player/paper_boat.tscn" id="3_epyrs"]
 [ext_resource type="Script" path="res://scenes/Blockers Factory.gd" id="3_nmwah"]
 [ext_resource type="FontFile" uid="uid://bqf32wa4wrekp" path="res://res/background/Minecraft.ttf" id="4_0occa"]
-[ext_resource type="Script" path="res://scenes/DeadZone.gd" id="4_ry486"]
 [ext_resource type="Script" path="res://scenes/EnnemiesFactory.gd" id="5_b4obu"]
-[ext_resource type="Script" path="res://scenes/BridgeFactory.gd" id="8_uugax"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_47tw0"]
-size = Vector2(74.5, 234.5)
+[ext_resource type="Script" path="res://scenes/BridgeFactory.gd" id="7_qq0sg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g65an"]
 font = ExtResource("4_0occa")
@@ -31,14 +27,6 @@ scale = Vector2(0.02, 0.02)
 position = Vector2(1, 0)
 offset = Vector2(183, 104)
 zoom = Vector2(3.16, 3.16)
-
-[node name="DeadZone" type="Area2D" parent="Camera2D"]
-position = Vector2(-1, 0)
-script = ExtResource("4_ry486")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/DeadZone"]
-position = Vector2(-43, 100)
-shape = SubResource("RectangleShape2D_47tw0")
 
 [node name="Control" type="Control" parent="Camera2D"]
 layout_mode = 3
@@ -62,13 +50,9 @@ label_settings = SubResource("LabelSettings_g65an")
 
 [node name="Blockers Factory" type="Node2D" parent="."]
 script = ExtResource("3_nmwah")
-spawn_interval_pipebas_init = 4.0
 
 [node name="EnnemiesFactory" type="Node2D" parent="."]
 script = ExtResource("5_b4obu")
 
-[node name="TimerPoint" type="Timer" parent="."]
-wait_time = 0.05
-
 [node name="BridgeFactory" type="Node2D" parent="."]
-script = ExtResource("8_uugax")
+script = ExtResource("7_qq0sg")

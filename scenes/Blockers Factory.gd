@@ -32,7 +32,7 @@ var zoom_x : int
 var screen_size : Vector2i
 
 func calculate_spawn_intervalle(score : int) :
-	if spawn_interval_fish>1 and spawn_interval_bottle>1 and spawn_interval_pipebas>2 :
+	if spawn_interval_fish>1 and spawn_interval_bottle>1:
 		spawn_interval_fish = spawn_interval_fish_init - score/1000
 		spawn_interval_bottle = spawn_interval_bottle_init - score/1000
 		spawn_interval_pipebas = spawn_interval_pipebas_init - score/1000

@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var speed = 10
+@export var speed = 20
 var flip
 var velocity = Vector2.ZERO
 @onready var sprite = $Sprite2D
