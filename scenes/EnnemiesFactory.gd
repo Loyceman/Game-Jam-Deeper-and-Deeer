@@ -60,7 +60,7 @@ func spawn_crocodile():
 	
 	# Définir une position aléatoire pour l'obstacle
 	var random_x = randi_range(camera.position.x + screen_size.x / zoom + 16, camera.position.x + screen_size.x / zoom + 96)
-	var random_y = randi_range(84, 208)
+	var random_y = randi_range(90, 200)
 	obstacle_instance.position = Vector2(random_x, random_y)
 	
 	# Ajouter l'obstacle à la scène

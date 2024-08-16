@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://kooflx4ooude" path="res://res/ennemies/bottle.png" id="2_oqn3l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hidr2"]
-size = Vector2(4, 8)
+size = Vector2(6, 16)
 
 [node name="bottle" type="RigidBody2D"]
 collision_layer = 2
@@ -13,7 +13,7 @@ script = ExtResource("1_kh2tv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.392157)
-scale = Vector2(0.01, 0.01)
+scale = Vector2(0.02, 0.02)
 texture = ExtResource("2_oqn3l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
