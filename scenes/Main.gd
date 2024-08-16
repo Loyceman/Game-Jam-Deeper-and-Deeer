@@ -14,7 +14,7 @@ var used_rect #jsp
 var cell_size : Vector2i
 var length_background : int
 
-const pointsEveryTimeout : int = 1
+@export var pointsEveryTimeout : int = 200
 
 signal change_to_game_over(score: int)
 
@@ -44,7 +44,7 @@ func _ready():
 	background.position =  Vector2i(0,0)
 
 
-func _process(delta):
+func _process(_delta):
 	#Vitesse de départ
 	speed = START_SPEED
 	
@@ -58,6 +58,8 @@ func _process(delta):
 
 # Fonction pour mettre à jour l'affichage du score
 func _update_score():
+	if Global.addSpeed < 65:
+		Global.addSpeed = Global.score/5000
 	if scorelabel:
 		scorelabel.set_text("Score: %d" % Global.score)
 

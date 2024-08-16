@@ -2,7 +2,8 @@ class_name Player
 
 extends CharacterBody2D
 
-@export var speed = 34
+@export var init_speed = 34
+var speed : float = init_speed
 
 signal game_over()
 
@@ -22,6 +23,7 @@ func get_input():
 func _physics_process(_delta):
 	get_input()
 	move_and_slide()
+	speed = Global.addSpeed/2 + init_speed
 	
 	if($"Sprites Boat".get_frame()==3):
 		died()

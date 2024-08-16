@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg266phg1oyv6"]
+[gd_scene load_steps=11 format=3 uid="uid://bg266phg1oyv6"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_al77q"]
 [ext_resource type="PackedScene" uid="uid://wovk285nwrnv" path="res://background/background.tscn" id="1_ryass"]
@@ -7,12 +7,16 @@
 [ext_resource type="FontFile" uid="uid://bqf32wa4wrekp" path="res://res/background/Minecraft.ttf" id="4_0occa"]
 [ext_resource type="Script" path="res://scenes/EnnemiesFactory.gd" id="5_b4obu"]
 [ext_resource type="Script" path="res://scenes/BridgeFactory.gd" id="7_qq0sg"]
+[ext_resource type="Script" path="res://scenes/DeadZone.gd" id="8_fy36x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g65an"]
 font = ExtResource("4_0occa")
 font_size = 12
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opsga"]
+size = Vector2(79.25, 310.75)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_al77q")
@@ -48,14 +52,44 @@ text = "
 Score here"
 label_settings = SubResource("LabelSettings_g65an")
 
+[node name="DeadZone" type="Area2D" parent="Camera2D"]
+position = Vector2(-1, 0)
+script = ExtResource("8_fy36x")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/DeadZone"]
+position = Vector2(418, 115)
+shape = SubResource("RectangleShape2D_opsga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/DeadZone"]
+position = Vector2(-58, 111)
+shape = SubResource("RectangleShape2D_opsga")
+
 [node name="Blockers Factory" type="Node2D" parent="."]
 script = ExtResource("3_nmwah")
+spawn_interval_fish_init = 0.5
+spawn_interval_bottle_init = 0.5
+spawn_interval_pipebas_init = 3.0
+
+[node name="TimerFish" type="Timer" parent="Blockers Factory"]
+autostart = true
+
+[node name="TimerBottle" type="Timer" parent="Blockers Factory"]
+autostart = true
+
+[node name="TimerPipe" type="Timer" parent="Blockers Factory"]
+autostart = true
 
 [node name="EnnemiesFactory" type="Node2D" parent="."]
 script = ExtResource("5_b4obu")
 
+[node name="TimerCroco" type="Timer" parent="EnnemiesFactory"]
+autostart = true
+
 [node name="BridgeFactory" type="Node2D" parent="."]
 script = ExtResource("7_qq0sg")
+
+[node name="TimerBridge" type="Timer" parent="BridgeFactory"]
+autostart = true
 
 [node name="TimerPoint" type="Timer" parent="."]
 wait_time = 0.05

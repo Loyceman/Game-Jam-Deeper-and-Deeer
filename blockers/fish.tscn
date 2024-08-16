@@ -9,7 +9,6 @@ height = 450.0
 
 [node name="Fish" type="RigidBody2D"]
 collision_layer = 4
-collision_mask = 37
 script = ExtResource("1_sab0x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

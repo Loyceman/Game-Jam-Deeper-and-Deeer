@@ -1,6 +1,7 @@
 extends RigidBody2D
 
-@export var speed = 20
+@export var init_speed = 20
+var speed : float = init_speed
 var direction
 var velocity = Vector2.ZERO
 @onready var sprite = $Sprite2D
@@ -18,4 +19,6 @@ func _ready():
 	velocity.x = direction * speed
 
 func _physics_process(delta):
+	speed = Global.addSpeed + init_speed
+	velocity.x = direction * speed
 	move_and_collide(velocity * delta)

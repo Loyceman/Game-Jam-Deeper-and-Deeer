@@ -7,5 +7,6 @@ func _ready():
 
 
 func _on_body_entered(body):
+
 	if (body.has_method("isPlayer")): 
 		$"../../Paper Boat".died()

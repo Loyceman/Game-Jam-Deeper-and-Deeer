@@ -6,19 +6,21 @@ var camera
 
 
 # Intervalle de temps entre chaque génération d'obstacle
-@export var spawn_interval_bridge_init = 50
+@export var spawn_interval_bridge_init = 20
 var spawn_interval_bridge : float = spawn_interval_bridge_init
-
-var timer1 = 0.0
+@onready var timerBridge : Timer = $TimerBridge
 
 var zoom
 var screen_size : Vector2i
 
 func calculate_spawn_intervalle(score : int) :
-	if spawn_interval_bridge > 3 :
-		spawn_interval_bridge = spawn_interval_bridge_init - score/1000
+	if spawn_interval_bridge > 5 :
+		spawn_interval_bridge = spawn_interval_bridge_init - score/10000
 
 func _ready():
+	#relier le timer 
+	timerBridge.timeout.connect(spawn_bridge)
+	
 	#Obtenir la cam
 	camera = get_parent().get_node("Camera2D")
 	
@@ -27,21 +29,14 @@ func _ready():
 	
 	#Obtient le zoom de la cam
 	zoom = camera.get_zoom().x
-	
-	# Initialiser le timer
-	timer1 = spawn_interval_bridge
 
 
 func _process(delta):
-	# Mettre à jour le timer1
-	timer1 -= delta
-	if timer1 <= 0:
-		# Réinitialiser le timer
-		timer1 = spawn_interval_bridge
-		# Générer un obstacle
-		spawn_bridge()
-		
+	timerBridge.set_wait_time(spawn_interval_bridge)
+	
 	for child in get_children():
+		if child.get_class() == "Timer" :
+			continue
 		if(child.position.x + 100  < camera.position.x):
 			child.queue_free()
 
@@ -57,3 +52,4 @@ func spawn_bridge():
 	
 	# Ajouter l'obstacle à la scène
 	add_child(obstacle_instance)
+	

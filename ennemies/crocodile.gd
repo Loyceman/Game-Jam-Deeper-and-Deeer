@@ -17,6 +17,7 @@ func _ready():
 	$NearZone.body_entered.connect(noHitZone)
 
 func _physics_process(delta):
+	speed = Global.addSpeed + init_speed
 	if aiming && target != null :
 		aim()
 	move_and_collide(velocity*delta)

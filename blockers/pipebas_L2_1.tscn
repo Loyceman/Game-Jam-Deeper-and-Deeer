@@ -4,6 +4,8 @@
 
 [node name="pipebas_L2_1" type="Node2D"]
 modulate = Color(1, 1, 1, 0.588235)
+light_mask = 64
+visibility_layer = 64
 scale = Vector2(0.04, 0.04)
 
 [node name="TileMap" parent="." instance=ExtResource("1_mt842")]

@@ -6,19 +6,21 @@ var camera
 
 
 # Intervalle de temps entre chaque génération d'obstacle
-@export var spawn_interval_crocodile_init = 4
+@export var spawn_interval_crocodile_init = 15
 var spawn_interval_crocodile : float = spawn_interval_crocodile_init
-
-var timer1 = 0.0
+@onready var timerCroco : Timer = $TimerCroco
 
 var zoom
 var screen_size : Vector2i
 
 func calculate_spawn_intervalle() :
-	if spawn_interval_crocodile > 3 :
-		spawn_interval_crocodile = spawn_interval_crocodile_init - Global.score/1500
+	if spawn_interval_crocodile > 2.5 :
+		spawn_interval_crocodile = spawn_interval_crocodile_init - Global.score/6000
 
 func _ready():
+	#relier les timer au fonction
+	timerCroco.timeout.connect(spawn_crocodile)
+	
 	#Obtenir la cam
 	camera = get_parent().get_node("Camera2D")
 	
@@ -27,22 +29,15 @@ func _ready():
 	
 	#Obtient le zoom de la cam
 	zoom = camera.get_zoom().x
-	
-	# Initialiser le timer
-	timer1 = spawn_interval_crocodile
 
 
-func _process(delta):
-	# Mettre à jour le timer1
-	timer1 -= delta
-	if timer1 <= 0:
-		# Réinitialiser le timer
-		timer1 = spawn_interval_crocodile
-		# Générer un obstacle
-		spawn_crocodile()
+func _process(_delta):
+	timerCroco.set_wait_time(spawn_interval_crocodile)
 		
 	for child in get_children():
-		if(child.position.x + 40  < $"../Camera2D".position.x):
+		if child.get_class() == "Timer" :
+			continue
+		if child.position.x + 40  < $"../Camera2D".position.x :
 			child.queue_free()
 
 

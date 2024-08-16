@@ -2,7 +2,8 @@ extends StaticBody2D
 
 class_name Ennemy
 
-@export var speed = 15
+@export var init_speed = 15
+var speed : float = init_speed
 var velocity : Vector2 = Vector2(-speed, 0)
 
 func isEnnemy():

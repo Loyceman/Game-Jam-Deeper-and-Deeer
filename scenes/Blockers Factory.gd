@@ -23,95 +23,72 @@ var spawn_interval_fish : float = spawn_interval_fish_init
 var spawn_interval_bottle : float = spawn_interval_bottle_init
 var spawn_interval_pipebas : float = spawn_interval_pipebas_init
 
-var timer1 : float = 0.0
-var timer2 : float = 0.0
-var timer3 : float = 0.0
-
+@onready var timerFish : Timer = $TimerFish
+@onready var timerBottle : Timer = $TimerBottle
+@onready var timerPipe : Timer = $TimerPipe
 
 var zoom_x : int
 var screen_size : Vector2i
 
 func calculate_spawn_intervalle() :
-	if spawn_interval_fish>1 and spawn_interval_bottle>1:
-		spawn_interval_fish = spawn_interval_fish_init - Global.score/1000
-		spawn_interval_bottle = spawn_interval_bottle_init - Global.score/1000
-		spawn_interval_pipebas = spawn_interval_pipebas_init - Global.score/1000
+	if (spawn_interval_fish - Global.score/10000) >0.5 and (spawn_interval_bottle - Global.score/10000) >0.5 and (spawn_interval_pipebas - Global.score/15000)>2:
+		spawn_interval_fish = spawn_interval_fish_init - Global.score/10000
+		spawn_interval_bottle = spawn_interval_bottle_init - Global.score/10000
+		spawn_interval_pipebas = spawn_interval_pipebas_init - Global.score/15000
 
 
 func _ready():
+	#relier le timer 
+	timerBottle.timeout.connect(spawn_bottle)
+	timerFish.timeout.connect(spawn_fish)
+	timerPipe.timeout.connect(spawn_pipebas)
+	
 	#Obtenir la caméra et son zoom
 	camera = get_parent().get_node("Camera2D")
 	zoom_x = camera.get_zoom().x
 
 	#Obtient taille de l'écran
 	screen_size = get_window().size
-	
-	# Initialiser les timers
-	timer1 = spawn_interval_fish
-	timer2 = spawn_interval_bottle
-	timer3 = spawn_interval_pipebas
 
 
-func _process(delta):
-	# Mettre à jour le timer1
-	timer1 -= delta
-	if timer1 <= 0:
-		# Réinitialiser le timer
-		timer1 = spawn_interval_fish
-		# Générer un obstacle
-		spawn_fish()
-	
-	# Mettre à jour le timer2
-	timer2 -= delta
-	if timer2 <= 0:
-		# Réinitialiser le timer
-		timer2 = spawn_interval_bottle
-		# Générer un obstacle
-		spawn_bottle()
-	
-	# Mettre à jour le timer3
-	timer3 -= delta
-	if timer3 <= 0:
-		# Réinitialiser le timer
-		timer3 = spawn_interval_pipebas
-		# Générer un obstacle
-		spawn_pipebas()
-		
+func _process(_delta):
+	timerBottle.set_wait_time(spawn_interval_bottle)
+	timerFish.set_wait_time(spawn_interval_fish)
+	timerPipe.set_wait_time(spawn_interval_pipebas)
 	
 	#Supprimer les éléments en dehors de la caméra
 	for child in get_children():
+		if child.get_class() == "Timer" :
+			continue
 		if(child.position.x + 20  < camera.position.x):
 			child.queue_free()
 
-
-func spawn_fish():
-	# Instancier un nouvel obstacle
-	var obstacle_instance = fish_scene.instantiate()
-	
+func random_position():
 	# Définir une position aléatoire pour l'obstacle
 	var random_x = randi_range(camera.position.x + screen_size.x / zoom_x + 16, camera.position.x + screen_size.x / zoom_x + 96)
 	var random_y = randi_range(84, 208)
-	obstacle_instance.position = Vector2(random_x, random_y)
+	return Vector2(random_x, random_y)
+
+func spawn_fish():
+	var obstacle_instance = fish_scene.instantiate()
+	
+	obstacle_instance.position = random_position()
 	
 	# Ajouter l'obstacle à la scène
 	add_child(obstacle_instance)
 
 
 func spawn_bottle():
-	# Instancier un nouvel obstacle
 	var obstacle_instance = bottle_scene.instantiate()
 	
 	# Définir une position aléatoire pour l'obstacle
-	var random_x = randi_range(camera.position.x + screen_size.x / zoom_x + 16, camera.position.x + screen_size.x / zoom_x + 96)
-	var random_y = randi_range(84, 208)
-	obstacle_instance.position = Vector2(random_x, random_y)
+	obstacle_instance.position = random_position()
 	
 	# Ajouter l'obstacle à la scène
 	add_child(obstacle_instance)
 
 
 func spawn_pipebas():
-	# Instancier un nouvel obstacle
 	pipes = randi() % 4
 	var obstacle_instance = pipebas_scene[pipes].instantiate()
 	
