@@ -13,12 +13,12 @@ radius = 600.0
 height = 4220.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tcpvj"]
-radius = 200.0
-height = 640.0
+radius = 210.0
+height = 560.0
 
 [node name="Crocodile" instance=ExtResource("1_5ioqs")]
 z_index = 2
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.14, 0.14)
 collision_layer = 8
 collision_mask = 33
 script = ExtResource("2_l2tij")
@@ -40,7 +40,7 @@ polygon = PackedVector2Array(-3.77777, 14.5454, -139.778, 13.0909, -185.111, 5.8
 [node name="HitZone" type="Area2D" parent="." index="3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone" index="0"]
-position = Vector2(2280, -10)
+position = Vector2(2210, -1.90735e-06)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_sacos")
 debug_color = Color(0.443137, 0.894118, 1, 0.419608)
@@ -48,6 +48,6 @@ debug_color = Color(0.443137, 0.894118, 1, 0.419608)
 [node name="NearZone" type="Area2D" parent="." index="4"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NearZone" index="0"]
-position = Vector2(460, 0)
+position = Vector2(440, -1.90735e-06)
 shape = SubResource("CapsuleShape2D_tcpvj")
 debug_color = Color(0.713726, 0.752941, 0.729412, 0.419608)

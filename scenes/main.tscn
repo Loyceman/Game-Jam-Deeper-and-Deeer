@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bg266phg1oyv6"]
+[gd_scene load_steps=9 format=3 uid="uid://bg266phg1oyv6"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_al77q"]
 [ext_resource type="PackedScene" uid="uid://wovk285nwrnv" path="res://background/background.tscn" id="1_ryass"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://scenes/Blockers Factory.gd" id="3_nmwah"]
 [ext_resource type="FontFile" uid="uid://bqf32wa4wrekp" path="res://res/background/Minecraft.ttf" id="4_0occa"]
 [ext_resource type="Script" path="res://scenes/EnnemiesFactory.gd" id="5_b4obu"]
-[ext_resource type="Script" path="res://scenes/DeadZone.gd" id="5_uaobd"]
 [ext_resource type="Script" path="res://scenes/BridgeFactory.gd" id="7_qq0sg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g65an"]
@@ -14,9 +13,6 @@ font = ExtResource("4_0occa")
 font_size = 12
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_otsfj"]
-size = Vector2(115, 274)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_al77q")
@@ -51,14 +47,6 @@ grow_horizontal = 2
 text = "
 Score here"
 label_settings = SubResource("LabelSettings_g65an")
-
-[node name="DeadZone" type="Area2D" parent="Camera2D"]
-position = Vector2(-1, 0)
-script = ExtResource("5_uaobd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/DeadZone"]
-position = Vector2(-72.5, 113)
-shape = SubResource("RectangleShape2D_otsfj")
 
 [node name="Blockers Factory" type="Node2D" parent="."]
 script = ExtResource("3_nmwah")

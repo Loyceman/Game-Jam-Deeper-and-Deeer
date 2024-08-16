@@ -4,13 +4,15 @@ var menu_scene = preload("res://scenes/menu_scene.tscn")
 var main_scene = preload("res://scenes/main.tscn")
 var game_over_scene = preload("res://scenes/game_over_screen.tscn")
 
+var bestscore : float = 0
+
 # Appelée lorsque le nœud entre dans l'arbre de la scène
 func _ready():
 	# Charge la scène du menu au démarrage
 	_load_scene(menu_scene)
 
 # Fonction pour charger une nouvelle scène
-func _load_scene(scene: PackedScene, score : int = 0):
+func _load_scene(scene: PackedScene):
 	# Efface les enfants existants de la scène actuelle
 	for child in get_children():
 		child.queue_free()
@@ -21,14 +23,19 @@ func _load_scene(scene: PackedScene, score : int = 0):
 	# Connecte le signal pour gérer le clic sur "Play" si c'est la scène du menu
 	if scene == menu_scene:
 		var play_button : Button = instance.get_node("Control").get_node("ButtonPlay")
+		var score_label : Label = instance.get_node("Control").get_node("ScoreLabel")
 		if(play_button != null) :
 			play_button.pressed.connect(_on_play_button_pressed)
+		if Global.score > bestscore :
+			bestscore = Global.score
+		score_label.set_text("Best score : %d" % bestscore)
+		
 	elif scene == main_scene :
 		instance.change_to_game_over.connect(_game_over)
 	elif scene == game_over_scene:
 		var label_screen : Label = instance.get_node("Control").get_node("VBoxContainer").get_node("LabelfinalScore")
 		if(label_screen != null) :
-			label_screen.set_text("Your score is %d" % score)
+			label_screen.set_text("Your score is %d" % Global.score)
 		instance.game_over_finished.connect(_go_to_menu)
 
 # Fonction appelée lorsqu'on clique sur le bouton "Play"
@@ -36,9 +43,9 @@ func _on_play_button_pressed():
 	# Change la scène en celle du jeu
 	_load_scene(main_scene)
 
-func _game_over(score : int):
+func _game_over():
 	# Change la scène en celle du jeu
-	_load_scene(game_over_scene, score)
+	_load_scene(game_over_scene)
 	
 func _go_to_menu():
 	_load_scene(menu_scene)

@@ -7,19 +7,21 @@ extends Node2D
 
 var zoom_x : int 
 var speed : float
-const START_SPEED : float = 0.5
+const START_SPEED : float = 0.2
 const CAM_START_POS : Vector2i = Vector2i(0, 0)
 var screen_size : Vector2i
 var used_rect #jsp
 var cell_size : Vector2i
 var length_background : int
 
-var score : float = 0 
 const pointsEveryTimeout : int = 1
 
 signal change_to_game_over(score: int)
 
 func _ready():
+	#Réinitialisation score
+	Global.score = 0
+	
 	timer.start()
 	timer.timeout.connect(increase_score)
 	$"Paper Boat".game_over.connect(call_scene_manager_for_game_over)
@@ -37,9 +39,7 @@ func _ready():
 	cell_size = background.get_child(0).get_tileset().get_tile_size()
 	length_background = used_rect.size.x * cell_size.x
 	
-	new_game()
-
-func new_game():
+	#Initialisation positions
 	camera.position = CAM_START_POS
 	background.position =  Vector2i(0,0)
 
@@ -59,14 +59,14 @@ func _process(delta):
 # Fonction pour mettre à jour l'affichage du score
 func _update_score():
 	if scorelabel:
-		scorelabel.set_text("Score: %d" % score)
+		scorelabel.set_text("Score: %d" % Global.score)
 
 # Exemple d'une fonction pour augmenter le score
 func increase_score():
-	score += pointsEveryTimeout
-	$"Blockers Factory".calculate_spawn_intervalle(score)
-	$EnnemiesFactory.calculate_spawn_intervalle(score)
+	Global.score += pointsEveryTimeout
+	$"Blockers Factory".calculate_spawn_intervalle()
+	$EnnemiesFactory.calculate_spawn_intervalle()
 	_update_score()
 	
 func call_scene_manager_for_game_over():
-	emit_signal("change_to_game_over", score)
+	emit_signal("change_to_game_over")
