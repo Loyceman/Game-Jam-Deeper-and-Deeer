@@ -20,6 +20,7 @@ size = Vector2(79.25, 310.75)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_al77q")
+pointsEveryTimeout = 400
 
 [node name="Background" parent="." instance=ExtResource("1_ryass")]
 
