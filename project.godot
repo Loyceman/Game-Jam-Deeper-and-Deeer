@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Game jam Alco"
+config/name="Game jam Deeper and Deeper "
+config/version="1"
 run/main_scene="res://scenes/scene_manager.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://res/paperboat/paper boat.png"
 
 [autoload]
 
@@ -52,5 +53,6 @@ move_right={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
 textures/vram_compression/import_s3tc_bptc=true
 textures/lossless_compression/force_png=true
