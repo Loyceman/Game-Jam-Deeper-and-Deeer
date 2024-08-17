@@ -15,9 +15,9 @@ var camera
 
 
 # Intervalle de temps entre chaque génération d'obstacle
-@export var spawn_interval_fish_init : float = 4
-@export var spawn_interval_bottle_init : float = 4
-@export var spawn_interval_pipebas_init : float = 10
+@export var spawn_interval_fish_init : float = 5
+@export var spawn_interval_bottle_init : float = 5
+@export var spawn_interval_pipebas_init : float = 15
 
 var spawn_interval_fish : float = spawn_interval_fish_init
 var spawn_interval_bottle : float = spawn_interval_bottle_init
@@ -31,7 +31,7 @@ var zoom_x : int
 var screen_size : Vector2i
 
 func calculate_spawn_intervalle() :
-	if (spawn_interval_fish - Global.score/10000) >0.5 and (spawn_interval_bottle - Global.score/10000) >0.5 and (spawn_interval_pipebas - Global.score/15000)>2:
+	if (spawn_interval_fish_init - Global.score/10000) >0.4 and (spawn_interval_bottle_init - Global.score/10000) >0.4 and (spawn_interval_pipebas_init - Global.score/15000)>5:
 		spawn_interval_fish = spawn_interval_fish_init - Global.score/10000
 		spawn_interval_bottle = spawn_interval_bottle_init - Global.score/10000
 		spawn_interval_pipebas = spawn_interval_pipebas_init - Global.score/15000

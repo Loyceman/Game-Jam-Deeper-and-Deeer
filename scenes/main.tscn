@@ -20,7 +20,6 @@ size = Vector2(79.25, 310.75)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_al77q")
-pointsEveryTimeout = 400
 
 [node name="Background" parent="." instance=ExtResource("1_ryass")]
 
@@ -67,9 +66,6 @@ shape = SubResource("RectangleShape2D_opsga")
 
 [node name="Blockers Factory" type="Node2D" parent="."]
 script = ExtResource("3_nmwah")
-spawn_interval_fish_init = 0.5
-spawn_interval_bottle_init = 0.5
-spawn_interval_pipebas_init = 3.0
 
 [node name="TimerFish" type="Timer" parent="Blockers Factory"]
 autostart = true

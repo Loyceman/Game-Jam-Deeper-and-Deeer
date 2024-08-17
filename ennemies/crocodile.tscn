@@ -22,7 +22,6 @@ scale = Vector2(0.14, 0.14)
 collision_layer = 8
 collision_mask = 33
 script = ExtResource("2_l2tij")
-speed = null
 
 [node name="Sprite2D" parent="." index="0"]
 rotation = -1.5708

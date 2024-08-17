@@ -14,8 +14,8 @@ var zoom
 var screen_size : Vector2i
 
 func calculate_spawn_intervalle(score : int) :
-	if spawn_interval_bridge > 5 :
-		spawn_interval_bridge = spawn_interval_bridge_init - score/10000
+	if spawn_interval_bridge_init - Global.score/10000 > 5 :
+		spawn_interval_bridge = spawn_interval_bridge_init - Global.score/10000
 
 func _ready():
 	#relier le timer 

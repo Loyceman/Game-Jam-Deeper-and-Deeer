@@ -14,8 +14,8 @@ var zoom
 var screen_size : Vector2i
 
 func calculate_spawn_intervalle() :
-	if spawn_interval_crocodile > 2.5 :
-		spawn_interval_crocodile = spawn_interval_crocodile_init - Global.score/6000
+	if (spawn_interval_crocodile_init - Global.score/10000) > 2.5 :
+		spawn_interval_crocodile = spawn_interval_crocodile_init - Global.score/10000
 
 func _ready():
 	#relier les timer au fonction
