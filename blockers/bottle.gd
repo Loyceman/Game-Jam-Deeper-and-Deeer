@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var init_speed = 20
+@export var init_speed = 15
 var speed : float = init_speed
 var direction
 var velocity = Vector2.ZERO
@@ -10,7 +10,7 @@ var velocity = Vector2.ZERO
 func _ready():
 	gravity_scale = 0
 	direction = -1
-	speed = 20
+	speed = 15
 	sprite.flip_v = true
 	var flip = randi_range(0,1)
 	if flip == 0:
