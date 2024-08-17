@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var init_speed = 20
+@export var init_speed = 5
 var speed : float = init_speed
 var direction
 var velocity = Vector2.ZERO
@@ -13,7 +13,7 @@ func _ready():
 	direction = randi() % 2
 	if direction == 0:
 		direction = -1
-		speed = 20
+		init_speed = 20
 		sprite.flip_v = true
 	
 	velocity.x = direction * speed
